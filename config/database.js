@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: '34.128.91.37',
     user: 'root',
     password: '',
-    database: '' //perlu disesuaikan dengan nama database di cloudsql
+    database: 'crm_database', //perlu disesuaikan dengan nama database di cloudsql
 });
 
 db.connect(err => {
