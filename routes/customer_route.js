@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const customerController = require('../controllers/customer_controller');
 
-router.get('/', customerController.getAllCustomers);
+router.get('/', customerController.getAllCustomer);
 router.get('/:id', customerController.getCustomerById);
 router.post('/', customerController.createCustomer);
 router.put('/:id', customerController.updateCustomer);

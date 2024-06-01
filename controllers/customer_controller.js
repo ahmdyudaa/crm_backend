@@ -1,6 +1,6 @@
 const Customer = require('../models/customer_model');
 
-const getAllCustomers = (req, res) => {
+const getAllCustomer = (req, res) => {
     Customer.getAll((err, result) => {
         if (err) throw err;
         res.send(result);
@@ -36,7 +36,7 @@ const deleteCustomer = (req, res) => {
 };
 
 module.exports = {
-    getAllCustomers,
+    getAllCustomer,
     getCustomerById,
     createCustomer,
     updateCustomer,

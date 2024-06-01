@@ -6,19 +6,19 @@ const Customer = {
         db.query(sql, callback);
     },
     getById: (id, callback) => {
-        const sql = 'SELECT * FROM customer WHERE id_customer = ?';
+        const sql = 'SELECT * FROM customer WHERE id = ?';
         db.query(sql, [id], callback);
     },
     create: (data, callback) => {
-        const sql = 'INSERT INTO customer (id_prospek, alamat, posisi, id_alamat) VALUES (?,?,?,?)';
-        db.query(sql, [data.id_prospek, data.alamat, data.posisi, data.id_alamat], callback);
+        const sql = 'INSERT INTO customer (id, alamat) VALUES (?,?)';
+        db.query(sql, [data.id, data.alamat], callback);
     },
     update: (id, data, callback) => {
-        const sql = 'UPDATE customer SET ? WHERE id_customer = ?';
+        const sql = 'UPDATE customer SET ? WHERE id = ?';
         db.query(sql, [data, id], callback);
     },
     delete: (id, callback) => {
-        const sql = 'DELETE FROM customer WHERE id_customer = ?';
+        const sql = 'DELETE FROM customer WHERE id = ?';
         db.query(sql, [id], callback);
     }
 };

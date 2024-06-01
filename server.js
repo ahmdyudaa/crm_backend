@@ -1,9 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const supplierRoutes = require('./routes/supplierRoutes');
-// const resellerRoutes = require('./routes/resellerRoutes');
+
 const customerRoutes = require('./routes/customer_route');
+const prospekRoutes = require('./routes/prospek_route');
+const agenRoutes = require('./routes/agen_route');
+const akunRoutes = require('./routes/akun_route');
+const produkRoutes = require('./routes/produk_route');
+const penjualanRoutes = require('./routes/penjualan_route');
 
 const app = express();
 const port = 3000;
@@ -13,9 +17,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
-// app.use('/suppliers', supplierRoutes);
-// app.use('/resellers', resellerRoutes);
-app.use('/customers', customerRoutes);
+app.use('/customer', customerRoutes);
+app.use('/prospek', prospekRoutes);
+app.use('/agen', agenRoutes);
+app.use('/akun', akunRoutes);
+app.use('/produk', produkRoutes);
+app.use('/penjualan', penjualanRoutes);
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Company API');
