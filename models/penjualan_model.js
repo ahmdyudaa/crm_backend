@@ -2,11 +2,37 @@ const db = require('../config/database');
 
 const Penjualan = {
     getAll: (callback) => {
-        const sql = 'SELECT * FROM penjualan';
+        const sql = `SELECT 
+        penjualan.id_penjualan, 
+        prospek.id AS prospek_id, 
+        prospek.nama AS prospek_nama, 
+        produk.id_produk, 
+        produk.nama_produk, 
+        produk.kategori, produk.harga, 
+        penjualan.tanggal, 
+        penjualan.total 
+        FROM penjualan 
+        INNER JOIN prospek ON penjualan.id_prospek = prospek.id 
+        INNER JOIN produk ON penjualan.id_produk = produk.id_produk`;
+
         db.query(sql, callback);
     },
     getById: (id, callback) => {
-        const sql = 'SELECT * FROM penjualan WHERE id_penjualan = ?';
+        const sql = `SELECT 
+        penjualan.id_penjualan, 
+        prospek.id AS prospek_id, 
+        prospek.nama AS prospek_nama, 
+        produk.id_produk, 
+        produk.nama_produk, 
+        produk.kategori, 
+        produk.harga, 
+        penjualan.tanggal, 
+        penjualan.total 
+        FROM penjualan 
+        INNER JOIN prospek ON penjualan.id_prospek = prospek.id 
+        INNER JOIN produk ON penjualan.id_produk = produk.id_produk
+        WHERE id_penjualan = ?`;
+
         db.query(sql, [id], callback);
     },
     create: (data, callback) => {
