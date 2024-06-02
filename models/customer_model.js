@@ -2,7 +2,11 @@ const db = require('../config/database');
 
 const Customer = {
     getAll: (callback) => {
-        const sql = 'SELECT * FROM customer';
+        const sql = `SELECT customer.id AS customer_id, customer.alamat, prospek.nama, prospek.telp, prospek.status 
+        FROM customer 
+        JOIN prospek ON customer.id = prospek.id
+        WHERE prospek.status = 'customer';`
+        
         db.query(sql, callback);
     },
     getById: (id, callback) => {

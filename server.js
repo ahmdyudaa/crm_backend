@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
 const customerRoutes = require('./routes/customer_route');
 const prospekRoutes = require('./routes/prospek_route');
 const agenRoutes = require('./routes/agen_route');
@@ -10,7 +11,7 @@ const produkRoutes = require('./routes/produk_route');
 const penjualanRoutes = require('./routes/penjualan_route');
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 // Middleware
 app.use(bodyParser.json());
