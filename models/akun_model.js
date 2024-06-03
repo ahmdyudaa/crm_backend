@@ -10,8 +10,8 @@ const Akun = {
         db.query(sql, [id], callback);
     },
     create: (data, callback) => {
-        const sql = 'INSERT INTO akun (username, password, status, id_agen) VALUES (?,?,?,?)';
-        db.query(sql, [data.username, data.password, data.status, data.id_agen], callback);
+        const sql = 'INSERT INTO akun (username, password) VALUES (?,?,?,?)';
+        db.query(sql, [data.username, data.password], callback);
     },
     update: (id, data, callback) => {
         const sql = 'UPDATE akun SET ? WHERE id_akun = ?';
