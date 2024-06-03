@@ -14,6 +14,13 @@ const getAkunById = (req, res) => {
     });
 };
 
+const getAkunByUsername = (req, res) => {
+    Akun.getByUsername(req.params.username, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+};
+
 const createAkun = (req, res) => {
     Akun.create(req.body, (err, result) => {
         if (err) throw err;
@@ -38,6 +45,7 @@ const deleteAkun = (req, res) => {
 module.exports = {
     getAllAkun,
     getAkunById,
+    getAkunByUsername,
     createAkun,
     updateAkun,
     deleteAkun

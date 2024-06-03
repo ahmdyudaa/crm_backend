@@ -9,6 +9,10 @@ const Akun = {
         const sql = 'SELECT * FROM akun WHERE id_akun = ?';
         db.query(sql, [id], callback);
     },
+    getByUsername: (username, callback) => {
+        const sql = 'SELECT * FROM akun WHERE username = ?';
+        db.query(sql, [username], callback);
+    },
     create: (data, callback) => {
         const sql = 'INSERT INTO akun (username, password) VALUES (?,?,?,?)';
         db.query(sql, [data.username, data.password], callback);
